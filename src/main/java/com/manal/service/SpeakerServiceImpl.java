@@ -5,7 +5,9 @@ import com.manal.repository.HibernateSpeakerRepositoryImpl;
 import com.manal.repository.SpeakerRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("speakerService")
 public class SpeakerServiceImpl implements SpeakerService{
 
   //hard-coded SpeakerRepository instance

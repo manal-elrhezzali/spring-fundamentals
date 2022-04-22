@@ -4,16 +4,20 @@ import com.manal.service.SpeakerService;
 import com.manal.service.SpeakerServiceImpl;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
+@ComponentScan({"com.manal"})//tells Spring that this is where we want it to start
+// scanning for beans to autowire
 public class AppConfig {
 
 //  @Bean(name = "speakerService")
 //  public SpeakerService getSpeakerService() {
 //    return new SpeakerServiceImpl();
 //  }
+  /*
   @Bean(name = "speakerService")
   @Scope(value = BeanDefinition.SCOPE_SINGLETON)
   public SpeakerService getSpeakerService() {
@@ -29,4 +33,5 @@ public class AppConfig {
   public SpeakerRepository getSpeakerRepository() {
     return new HibernateSpeakerRepositoryImpl();
   }
+  */
 }
