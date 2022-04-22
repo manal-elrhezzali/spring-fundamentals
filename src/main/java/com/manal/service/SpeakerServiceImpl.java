@@ -22,7 +22,6 @@ public class SpeakerServiceImpl implements SpeakerService{
   // hard-coded instances in here
   //after adding Autowired, Spring is going to automatically inject the SpeakerRepository
   // bean into this setter
-  @Autowired
   public void setRepository(SpeakerRepository repository) {
     System.out.println("SpeakerServiceImpl setter");
     this.repository = repository;
@@ -32,6 +31,8 @@ public class SpeakerServiceImpl implements SpeakerService{
     System.out.println("SpeakerServiceImpl no args constructor");
   }
 
+  //constructor injection
+  @Autowired
   public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
     System.out.println("SpeakerServiceImpl repository constructor");
     this.repository = speakerRepository;
