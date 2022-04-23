@@ -4,6 +4,7 @@ import com.manal.model.Speaker;
 import com.manal.repository.HibernateSpeakerRepositoryImpl;
 import com.manal.repository.SpeakerRepository;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,10 @@ public class SpeakerServiceImpl implements SpeakerService{
   public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
     System.out.println("SpeakerServiceImpl repository constructor");
     this.repository = speakerRepository;
+  }
+
+  @PostConstruct
+  private void initialize() {
+    System.out.println("we're called after the constructors");
   }
 }

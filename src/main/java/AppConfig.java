@@ -2,10 +2,13 @@ import com.manal.repository.HibernateSpeakerRepositoryImpl;
 import com.manal.repository.SpeakerRepository;
 import com.manal.service.SpeakerService;
 import com.manal.service.SpeakerServiceImpl;
+import com.manal.util.CalendarFactory;
+import java.util.Calendar;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
@@ -13,6 +16,17 @@ import org.springframework.context.annotation.Scope;
 // scanning for beans to autowire
 public class AppConfig {
 
+  @Bean(name = "cal")
+  public CalendarFactory calFactory() {
+    CalendarFactory factory= new CalendarFactory();
+    factory.addDays(2);
+    return factory;
+  }
+
+  @Bean
+  public Calendar cal() throws Exception {
+    return calFactory().getObject();
+  }
 //  @Bean(name = "speakerService")
 //  public SpeakerService getSpeakerService() {
 //    return new SpeakerServiceImpl();
